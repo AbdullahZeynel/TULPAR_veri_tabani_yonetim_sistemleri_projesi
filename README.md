@@ -1,0 +1,1 @@
+# TULPAR_veri_tabani_yonetim_sistemleri_projesi
