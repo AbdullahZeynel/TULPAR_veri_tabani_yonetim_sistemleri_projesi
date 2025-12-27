@@ -1,0 +1,27 @@
+===============================================
+SIBERMAILER - CAMPAIGN SEND LOG
+Started: 2025-12-23 17:00:15
+SMTP: info@teamergenekon.org
+Subject: Testt
+Recipients: 5
+===============================================
+
+
+===============================================
+SEND RESULTS
+===============================================
+Total Attempted: 5
+Successful:      5
+Failed:          0
+Success Rate:    100,0%
+Duration:        18,4 seconds
+
+INDIVIDUAL RESULTS:
+-----------------------------------------------
+✓ SENT     0abdullahzeynel0@gmail.com
+✓ SENT     g37867882@gmail.com
+✓ SENT     141.muh.mur.cha@gmail.com
+✓ SENT     keremdurgut265@gmail.com
+✓ SENT     mesudeturkmen0@gmail.com
+
+Completed: 2025-12-23 17:00:34

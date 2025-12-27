@@ -1,0 +1,277 @@
+<UserControl x:Class="SiberMailer.UI.Views.AdminPanelView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:SiberMailer.UI.ViewModels"
+             Background="Transparent">
+
+    <UserControl.DataContext>
+        <vm:AdminPanelViewModel />
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0" Background="{DynamicResource CardBackgroundBrush}" Padding="20,15" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="0,0,0,1">
+            <StackPanel>
+                <TextBlock Text="🛡️ Admin Panel" FontSize="24" FontWeight="Bold" Foreground="{DynamicResource PrimaryTextBrush}"/>
+                <TextBlock Text="Manage system users and branches" FontSize="12" Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,5,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Tab Control -->
+        <TabControl Grid.Row="1" SelectedIndex="{Binding SelectedTabIndex}" Background="Transparent" BorderThickness="0" Margin="15">
+            <TabControl.Resources>
+                <Style TargetType="TabItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TabItem">
+                                <Border Name="Border" Background="{DynamicResource CardBackgroundBrush}" BorderThickness="0" Padding="20,10" Margin="0,0,5,0" CornerRadius="8,8,0,0">
+                                    <ContentPresenter ContentSource="Header" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="Border" Property="Background" Value="{DynamicResource AccentBrush}"/>
+                                        <Setter Property="Foreground" Value="{DynamicResource AccentForegroundBrush}"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="Border" Property="Background" Value="{DynamicResource ButtonHoverBrush}"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TabControl.Resources>
+
+            <!-- Users Tab -->
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="👥 Users" FontSize="14" FontWeight="SemiBold" Foreground="{DynamicResource PrimaryTextBrush}"/>
+                </TabItem.Header>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Users List -->
+                    <Border Grid.Column="0" Background="{DynamicResource CardBackgroundBrush}" CornerRadius="8" Margin="0,0,10,0" Padding="15" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- List Header -->
+                            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
+                                <TextBlock Text="Users" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource PrimaryTextBrush}" VerticalAlignment="Center"/>
+                                <Button Content="🔄" Width="30" Height="30" Margin="10,0,0,0" Command="{Binding RefreshUsersCommand}"
+                                        Background="{DynamicResource ButtonNormalBrush}" Foreground="{DynamicResource PrimaryTextBrush}" BorderThickness="0" Cursor="Hand" ToolTip="Refresh"/>
+                            </StackPanel>
+
+                            <!-- DataGrid -->
+                            <DataGrid Grid.Row="1" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser}"
+                                      AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False"
+                                      Background="Transparent" GridLinesVisibility="None"
+                                      HeadersVisibility="Column" RowBackground="{DynamicResource ButtonNormalBrush}" AlternatingRowBackground="{DynamicResource CardBackgroundBrush}"
+                                      BorderThickness="0">
+                                <DataGrid.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+                                        <Setter Property="Background" Value="Transparent"/>
+                                    </Style>
+                                </DataGrid.CellStyle>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Username" Binding="{Binding Username}" Width="*"/>
+                                    <DataGridTextColumn Header="Full Name" Binding="{Binding FullName}" Width="*"/>
+                                    <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="1.5*"/>
+                                    <DataGridTextColumn Header="Role" Binding="{Binding Role}" Width="Auto"/>
+                                    <DataGridCheckBoxColumn Header="Active" Binding="{Binding IsActive}" Width="Auto" IsReadOnly="True"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </Border>
+
+                    <!-- User Form -->
+                    <Border Grid.Column="1" Background="{DynamicResource CardBackgroundBrush}" CornerRadius="8" Padding="15" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <StackPanel>
+                                <TextBlock Text="User Details" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource PrimaryTextBrush}" Margin="0,0,0,15"/>
+
+                                <TextBlock Text="Username" Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,0,0,5"/>
+                                <TextBox Text="{Binding UserUsername, UpdateSourceTrigger=PropertyChanged}" 
+                                         Background="{DynamicResource PanelBackgroundBrush}" Foreground="{DynamicResource PrimaryTextBrush}" Padding="10" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Margin="0,0,0,10"/>
+
+                                <TextBlock Text="Email" Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,0,0,5"/>
+                                <TextBox Text="{Binding UserEmail, UpdateSourceTrigger=PropertyChanged}" 
+                                         Background="{DynamicResource PanelBackgroundBrush}" Foreground="{DynamicResource PrimaryTextBrush}" Padding="10" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Margin="0,0,0,10"/>
+
+                                <TextBlock Text="Full Name" Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,0,0,5"/>
+                                <TextBox Text="{Binding UserFullName, UpdateSourceTrigger=PropertyChanged}" 
+                                         Background="{DynamicResource PanelBackgroundBrush}" Foreground="{DynamicResource PrimaryTextBrush}" Padding="10" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Margin="0,0,0,10"/>
+
+                                <TextBlock Text="Password (leave empty to keep current)" Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,0,0,5"/>
+                                <PasswordBox x:Name="UserPasswordBox" 
+                                             Background="{DynamicResource PanelBackgroundBrush}" Foreground="{DynamicResource PrimaryTextBrush}" Padding="10" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Margin="0,0,0,10"
+                                             PasswordChanged="UserPasswordBox_PasswordChanged"/>
+
+                                <TextBlock Text="Role" Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,0,0,5"/>
+                                <ComboBox ItemsSource="{Binding UserRoles}" SelectedItem="{Binding UserRole}"
+                                          Background="{DynamicResource PanelBackgroundBrush}" Foreground="{DynamicResource AccentForegroundBrush}" Padding="10" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Margin="0,0,0,10">
+                                    <ComboBox.Resources>
+                                        <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="#252526"/>
+                                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#3E3E4E"/>
+                                    </ComboBox.Resources>
+                                    <ComboBox.ItemContainerStyle>
+                                        <Style TargetType="ComboBoxItem">
+                                            <Setter Property="Foreground" Value="White"/>
+                                            <Setter Property="Background" Value="#252526"/>
+                                            <Setter Property="Padding" Value="10,5"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsHighlighted" Value="True">
+                                                    <Setter Property="Background" Value="#3E3E4E"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ComboBox.ItemContainerStyle>
+                                </ComboBox>
+
+                                <CheckBox IsChecked="{Binding UserIsActive}" Content="Is Active" Foreground="{DynamicResource PrimaryTextBrush}" Margin="0,0,0,15"/>
+
+                                <!-- Buttons -->
+                                <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                    <Button Content="💾 Save User" Command="{Binding SaveUserCommand}"
+                                            Background="{DynamicResource AccentBrush}" Foreground="{DynamicResource AccentForegroundBrush}" Padding="15,10" FontWeight="SemiBold"
+                                            BorderThickness="0" Cursor="Hand" Margin="0,0,0,8"/>
+
+                                    <Button Content="➕ New User" Command="{Binding NewUserCommand}"
+                                            Background="{DynamicResource SuccessBrush}" Foreground="White" Padding="15,10"
+                                            BorderThickness="0" Cursor="Hand" Margin="0,0,0,8"/>
+
+                                    <Button Content="🗑️ Delete User" Command="{Binding DeleteUserCommand}"
+                                            Background="{DynamicResource ErrorBrush}" Foreground="Black" Padding="15,10"
+                                            BorderThickness="0" Cursor="Hand" Margin="0,0,0,8"/>
+
+                                    <Button Content="✖️ Cancel" Command="{Binding CancelUserEditCommand}"
+                                            Background="{DynamicResource ButtonNormalBrush}" Foreground="{DynamicResource PrimaryTextBrush}" Padding="15,10"
+                                            BorderThickness="0" Cursor="Hand"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Border>
+                </Grid>
+            </TabItem>
+
+            <!-- Branches Tab -->
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="🏢 Branches" FontSize="14" FontWeight="SemiBold" Foreground="{DynamicResource PrimaryTextBrush}"/>
+                </TabItem.Header>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Branches List -->
+                    <Border Grid.Column="0" Background="{DynamicResource CardBackgroundBrush}" CornerRadius="8" Margin="0,0,10,0" Padding="15" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- List Header -->
+                            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
+                                <TextBlock Text="Branches" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource PrimaryTextBrush}" VerticalAlignment="Center"/>
+                                <Button Content="🔄" Width="30" Height="30" Margin="10,0,0,0" Command="{Binding RefreshBranchesCommand}"
+                                        Background="{DynamicResource ButtonNormalBrush}" Foreground="{DynamicResource PrimaryTextBrush}" BorderThickness="0" Cursor="Hand" ToolTip="Refresh"/>
+                            </StackPanel>
+
+                            <!-- DataGrid -->
+                            <DataGrid Grid.Row="1" ItemsSource="{Binding Branches}" SelectedItem="{Binding SelectedBranch}"
+                                      AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False"
+                                      Background="Transparent" GridLinesVisibility="None"
+                                      HeadersVisibility="Column" RowBackground="{DynamicResource ButtonNormalBrush}" AlternatingRowBackground="{DynamicResource CardBackgroundBrush}"
+                                      BorderThickness="0">
+                                <DataGrid.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+                                        <Setter Property="Background" Value="Transparent"/>
+                                    </Style>
+                                </DataGrid.CellStyle>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Branch Code" Binding="{Binding BranchCode}" Width="Auto"/>
+                                    <DataGridTextColumn Header="Branch Name" Binding="{Binding BranchName}" Width="*"/>
+                                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="1.5*"/>
+                                    <DataGridCheckBoxColumn Header="Active" Binding="{Binding IsActive}" Width="Auto" IsReadOnly="True"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </Border>
+
+                    <!-- Branch Form -->
+                    <Border Grid.Column="1" Background="{DynamicResource CardBackgroundBrush}" CornerRadius="8" Padding="15" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1">
+                        <StackPanel>
+                            <TextBlock Text="Branch Details" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource PrimaryTextBrush}" Margin="0,0,0,15"/>
+
+                            <TextBlock Text="Branch Code" Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,0,0,5"/>
+                            <TextBox Text="{Binding BranchCode, UpdateSourceTrigger=PropertyChanged}" 
+                                     Background="{DynamicResource PanelBackgroundBrush}" Foreground="{DynamicResource PrimaryTextBrush}" Padding="10" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Margin="0,0,0,10"/>
+
+                            <TextBlock Text="Branch Name" Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,0,0,5"/>
+                            <TextBox Text="{Binding BranchName, UpdateSourceTrigger=PropertyChanged}" 
+                                     Background="{DynamicResource PanelBackgroundBrush}" Foreground="{DynamicResource PrimaryTextBrush}" Padding="10" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Margin="0,0,0,10"/>
+
+                            <TextBlock Text="Description" Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,0,0,5"/>
+                            <TextBox Text="{Binding BranchDescription, UpdateSourceTrigger=PropertyChanged}" 
+                                     Background="{DynamicResource PanelBackgroundBrush}" Foreground="{DynamicResource PrimaryTextBrush}" Padding="10" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Margin="0,0,0,10"
+                                     TextWrapping="Wrap" AcceptsReturn="True" MinHeight="60"/>
+
+                            <CheckBox IsChecked="{Binding BranchIsActive}" Content="Is Active" Foreground="{DynamicResource PrimaryTextBrush}" Margin="0,0,0,15"/>
+
+                            <!-- Buttons -->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <Button Content="💾 Save Branch" Command="{Binding SaveBranchCommand}"
+                                        Background="{DynamicResource AccentBrush}" Foreground="{DynamicResource AccentForegroundBrush}" Padding="15,10" FontWeight="SemiBold"
+                                        BorderThickness="0" Cursor="Hand" Margin="0,0,0,8"/>
+
+                                <Button Content="➕ New Branch" Command="{Binding NewBranchCommand}"
+                                        Background="{DynamicResource SuccessBrush}" Foreground="White" Padding="15,10"
+                                        BorderThickness="0" Cursor="Hand" Margin="0,0,0,8"/>
+
+                                <Button Content="🗑️ Delete Branch" Command="{Binding DeleteBranchCommand}"
+                                        Background="{DynamicResource ErrorBrush}" Foreground="Black" Padding="15,10"
+                                        BorderThickness="0" Cursor="Hand" Margin="0,0,0,8"/>
+
+                                <Button Content="✖️ Cancel" Command="{Binding CancelBranchEditCommand}"
+                                        Background="{DynamicResource ButtonNormalBrush}" Foreground="{DynamicResource PrimaryTextBrush}" Padding="15,10"
+                                        BorderThickness="0" Cursor="Hand"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <!-- Status Bar -->
+        <Border Grid.Row="2" Background="{DynamicResource CardBackgroundBrush}" Padding="15,10" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="0,1,0,0">
+            <Grid>
+                <TextBlock Text="{Binding StatusMessage}" Foreground="{DynamicResource SecondaryTextBrush}" VerticalAlignment="Center"/>
+                <ProgressBar IsIndeterminate="{Binding IsLoading}" Height="4" VerticalAlignment="Bottom" 
+                             Foreground="{DynamicResource AccentBrush}" Background="Transparent" BorderThickness="0" Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibilityConverter}}"/>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

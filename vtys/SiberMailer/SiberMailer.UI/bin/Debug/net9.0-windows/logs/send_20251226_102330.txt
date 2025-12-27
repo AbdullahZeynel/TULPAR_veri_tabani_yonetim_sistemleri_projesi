@@ -1,0 +1,23 @@
+===============================================
+SIBERMAILER - CAMPAIGN SEND LOG
+Started: 2025-12-26 10:23:30
+SMTP: info@teamergenekon.org
+Subject: davetiye_ergenekon.html
+Recipients: 1
+===============================================
+
+
+===============================================
+SEND RESULTS
+===============================================
+Total Attempted: 1
+Successful:      1
+Failed:          0
+Success Rate:    100,0%
+Duration:        4,6 seconds
+
+INDIVIDUAL RESULTS:
+-----------------------------------------------
+✓ SENT     meldakahraman.02@gmail.com
+
+Completed: 2025-12-26 10:23:35

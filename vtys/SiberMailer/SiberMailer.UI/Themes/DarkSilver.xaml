@@ -1,0 +1,157 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    
+    <!-- ============================================ -->
+    <!-- SIBERMAILER 2.0 - DARK SILVER THEME -->
+    <!-- Premium Monochrome "Cybersecurity" Aesthetic -->
+    <!-- Matches: Metallic Wolf Logo, High-End Security -->
+    <!-- ============================================ -->
+    
+    <!-- ============================================ -->
+    <!-- BASE COLORS (Unchanged Deep Darks) -->
+    <!-- ============================================ -->
+    
+    <!-- Window & Panel Backgrounds -->
+    <Color x:Key="WindowBackgroundColor">#1E1E1E</Color>
+    <Color x:Key="PanelBackgroundColor">#252526</Color>
+    <Color x:Key="CardBackgroundColor">#2D2D30</Color>
+    
+    <!-- ============================================ -->
+    <!-- ACCENT COLORS (Silver/Platinum Spectrum) -->
+    <!-- ============================================ -->
+    
+    <!-- Primary Accent: Platinum Silver -->
+    <Color x:Key="AccentColor">#E0E0E0</Color>
+    <!-- Hover State: Pure White -->
+    <Color x:Key="AccentLightColor">#FFFFFF</Color>
+    <!-- Pressed State: Gunmetal Grey -->
+    <Color x:Key="AccentDarkColor">#909090</Color>
+    
+    <!-- ============================================ -->
+    <!-- BUTTON STATE COLORS (Neutral Greys) -->
+    <!-- ============================================ -->
+    
+    <Color x:Key="ButtonNormalColor">#3C3C3C</Color>
+    <Color x:Key="ButtonHoverColor">#505050</Color>
+    <Color x:Key="ButtonPressedColor">#6A6A6A</Color>
+    <Color x:Key="ButtonDisabledColor">#2A2A2A</Color>
+    
+    <!-- ============================================ -->
+    <!-- TEXT COLORS -->
+    <!-- ============================================ -->
+    
+    <Color x:Key="PrimaryTextColor">#FFFFFF</Color>
+    <Color x:Key="SecondaryTextColor">#A8A8A8</Color>
+    <Color x:Key="DisabledTextColor">#5A5A5A</Color>
+    <!-- Silver accent text for links/highlights -->
+    <Color x:Key="AccentTextColor">#E0E0E0</Color>
+    
+    <!-- CRITICAL: Dark text for light (silver) backgrounds -->
+    <Color x:Key="AccentForegroundColor">#121212</Color>
+    
+    <!-- ============================================ -->
+    <!-- SEMANTIC/STATUS COLORS -->
+    <!-- ============================================ -->
+    
+    <!-- Desaturated for monochrome consistency -->
+    <Color x:Key="SuccessColor">#6FCF7C</Color>
+    <Color x:Key="WarningColor">#F0C040</Color>
+    <Color x:Key="ErrorColor">#E85050</Color>
+    <Color x:Key="InfoColor">#70A8E0</Color>
+    
+    <!-- ============================================ -->
+    <!-- BORDER COLORS (Subtle Silver Hints) -->
+    <!-- ============================================ -->
+    
+    <Color x:Key="BorderColor">#404045</Color>
+    <Color x:Key="BorderLightColor">#58585E</Color>
+    
+    <!-- Focus/Selection: Semi-transparent White -->
+    <Color x:Key="SelectionColor">#33FFFFFF</Color>
+    
+    <!-- ============================================ -->
+    <!-- SOLID COLOR BRUSHES -->
+    <!-- ============================================ -->
+    
+    <!-- Background Brushes -->
+    <SolidColorBrush x:Key="WindowBackgroundBrush" Color="{StaticResource WindowBackgroundColor}"/>
+    <SolidColorBrush x:Key="PanelBackgroundBrush" Color="{StaticResource PanelBackgroundColor}"/>
+    <SolidColorBrush x:Key="CardBackgroundBrush" Color="{StaticResource CardBackgroundColor}"/>
+    
+    <!-- Accent Brushes (Silver Spectrum) -->
+    <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}"/>
+    <SolidColorBrush x:Key="AccentLightBrush" Color="{StaticResource AccentLightColor}"/>
+    <SolidColorBrush x:Key="AccentDarkBrush" Color="{StaticResource AccentDarkColor}"/>
+    
+    <!-- Button Brushes -->
+    <SolidColorBrush x:Key="ButtonNormalBrush" Color="{StaticResource ButtonNormalColor}"/>
+    <SolidColorBrush x:Key="ButtonHoverBrush" Color="{StaticResource ButtonHoverColor}"/>
+    <SolidColorBrush x:Key="ButtonPressedBrush" Color="{StaticResource ButtonPressedColor}"/>
+    <SolidColorBrush x:Key="ButtonDisabledBrush" Color="{StaticResource ButtonDisabledColor}"/>
+    
+    <!-- Text Brushes -->
+    <SolidColorBrush x:Key="PrimaryTextBrush" Color="{StaticResource PrimaryTextColor}"/>
+    <SolidColorBrush x:Key="SecondaryTextBrush" Color="{StaticResource SecondaryTextColor}"/>
+    <SolidColorBrush x:Key="DisabledTextBrush" Color="{StaticResource DisabledTextColor}"/>
+    <SolidColorBrush x:Key="AccentTextBrush" Color="{StaticResource AccentTextColor}"/>
+    
+    <!-- CRITICAL: Dark text brush for silver buttons -->
+    <SolidColorBrush x:Key="AccentForegroundBrush" Color="{StaticResource AccentForegroundColor}"/>
+    
+    <!-- Status Brushes -->
+    <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource SuccessColor}"/>
+    <SolidColorBrush x:Key="WarningBrush" Color="{StaticResource WarningColor}"/>
+    <SolidColorBrush x:Key="ErrorBrush" Color="{StaticResource ErrorColor}"/>
+    <SolidColorBrush x:Key="InfoBrush" Color="{StaticResource InfoColor}"/>
+    
+    <!-- Border Brushes -->
+    <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource BorderColor}"/>
+    <SolidColorBrush x:Key="BorderLightBrush" Color="{StaticResource BorderLightColor}"/>
+    
+    <!-- Selection/Focus Brush -->
+    <SolidColorBrush x:Key="SelectionBrush" Color="{StaticResource SelectionColor}"/>
+    
+    <!-- ============================================ -->
+    <!-- GRADIENT BRUSHES (Metallic Effects) -->
+    <!-- ============================================ -->
+    
+    <!-- Subtle metallic gradient for premium feel -->
+    <LinearGradientBrush x:Key="AccentGradientBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#E8E8E8" Offset="0"/>
+        <GradientStop Color="#C0C0C0" Offset="1"/>
+    </LinearGradientBrush>
+    
+    <!-- Overlay effects -->
+    <SolidColorBrush x:Key="HoverOverlayBrush" Color="#15FFFFFF"/>
+    <SolidColorBrush x:Key="PressedOverlayBrush" Color="#30FFFFFF"/>
+    
+    <!-- ============================================ -->
+    <!-- FONT SETTINGS (Unchanged) -->
+    <!-- ============================================ -->
+    
+    <FontFamily x:Key="PrimaryFontFamily">Segoe UI</FontFamily>
+    <FontFamily x:Key="MonoFontFamily">Consolas</FontFamily>
+    
+    <sys:Double x:Key="FontSizeSmall">11</sys:Double>
+    <sys:Double x:Key="FontSizeNormal">13</sys:Double>
+    <sys:Double x:Key="FontSizeMedium">15</sys:Double>
+    <sys:Double x:Key="FontSizeLarge">18</sys:Double>
+    <sys:Double x:Key="FontSizeTitle">24</sys:Double>
+    <sys:Double x:Key="FontSizeHeader">32</sys:Double>
+    
+    <!-- ============================================ -->
+    <!-- COMMON DIMENSIONS (Unchanged) -->
+    <!-- ============================================ -->
+    
+    <CornerRadius x:Key="SmallCornerRadius">4</CornerRadius>
+    <CornerRadius x:Key="MediumCornerRadius">8</CornerRadius>
+    <CornerRadius x:Key="LargeCornerRadius">12</CornerRadius>
+    <CornerRadius x:Key="RoundCornerRadius">20</CornerRadius>
+    
+    <Thickness x:Key="SmallMargin">4</Thickness>
+    <Thickness x:Key="MediumMargin">8</Thickness>
+    <Thickness x:Key="LargeMargin">16</Thickness>
+    <Thickness x:Key="WindowPadding">15</Thickness>
+
+</ResourceDictionary>

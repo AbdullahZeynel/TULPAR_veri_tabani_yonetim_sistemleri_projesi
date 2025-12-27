@@ -1,0 +1,309 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|c:\\users\\godfry\\desktop\\vtys\\sibermailer\\sibermailer.ui\\views\\campaignview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|solutionrelative:sibermailer.ui\\views\\campaignview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|c:\\users\\godfry\\desktop\\vtys\\sibermailer\\sibermailer.ui\\viewmodels\\campaignviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|solutionrelative:sibermailer.ui\\viewmodels\\campaignviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|c:\\users\\godfry\\desktop\\vtys\\sibermailer\\sibermailer.ui\\views\\templatesview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|solutionrelative:sibermailer.ui\\views\\templatesview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|c:\\users\\godfry\\desktop\\vtys\\sibermailer\\sibermailer.ui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|solutionrelative:sibermailer.ui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|c:\\users\\godfry\\desktop\\vtys\\sibermailer\\sibermailer.ui\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|solutionrelative:sibermailer.ui\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|c:\\users\\godfry\\desktop\\vtys\\sibermailer\\sibermailer.ui\\views\\adminpanelview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|solutionrelative:sibermailer.ui\\views\\adminpanelview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4CE40EAF-F53C-4F7A-95C0-CD286C45DC1D}|SiberMailer.Data\\SiberMailer.Data.csproj|c:\\users\\godfry\\desktop\\vtys\\sibermailer\\sibermailer.data\\repositories\\mailjobrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CE40EAF-F53C-4F7A-95C0-CD286C45DC1D}|SiberMailer.Data\\SiberMailer.Data.csproj|solutionrelative:sibermailer.data\\repositories\\mailjobrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|c:\\users\\godfry\\desktop\\vtys\\sibermailer\\sibermailer.ui\\views\\contactlistview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|solutionrelative:sibermailer.ui\\views\\contactlistview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|c:\\users\\godfry\\desktop\\vtys\\sibermailer\\sibermailer.ui\\views\\settingsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|solutionrelative:sibermailer.ui\\views\\settingsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|c:\\users\\godfry\\desktop\\vtys\\sibermailer\\sibermailer.ui\\views\\smtpconfigview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|solutionrelative:sibermailer.ui\\views\\smtpconfigview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|c:\\users\\godfry\\desktop\\vtys\\sibermailer\\sibermailer.ui\\views\\smtpvaultview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|solutionrelative:sibermailer.ui\\views\\smtpvaultview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|c:\\users\\godfry\\desktop\\vtys\\sibermailer\\sibermailer.ui\\views\\pindialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|solutionrelative:sibermailer.ui\\views\\pindialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|c:\\users\\godfry\\desktop\\vtys\\sibermailer\\sibermailer.ui\\views\\logview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|solutionrelative:sibermailer.ui\\views\\logview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|c:\\users\\godfry\\desktop\\vtys\\sibermailer\\sibermailer.ui\\views\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|solutionrelative:sibermailer.ui\\views\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|c:\\users\\godfry\\desktop\\vtys\\sibermailer\\sibermailer.ui\\views\\importview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|solutionrelative:sibermailer.ui\\views\\importview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|c:\\users\\godfry\\desktop\\vtys\\sibermailer\\sibermailer.ui\\views\\dashboardview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|solutionrelative:sibermailer.ui\\views\\dashboardview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|c:\\users\\godfry\\desktop\\vtys\\sibermailer\\sibermailer.ui\\views\\custommessagebox.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|solutionrelative:sibermailer.ui\\views\\custommessagebox.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|c:\\users\\godfry\\desktop\\vtys\\sibermailer\\sibermailer.ui\\views\\contacteditorwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|solutionrelative:sibermailer.ui\\views\\contacteditorwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|c:\\users\\godfry\\desktop\\vtys\\sibermailer\\sibermailer.ui\\views\\approvalcenterview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{685B73C5-2A3A-4126-99E4-B4D7BB1ED863}|SiberMailer.UI\\SiberMailer.UI.csproj|solutionrelative:sibermailer.ui\\views\\approvalcenterview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CampaignViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\ViewModels\\CampaignViewModel.cs",
+              "RelativeDocumentMoniker": "SiberMailer.UI\\ViewModels\\CampaignViewModel.cs",
+              "ToolTip": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\ViewModels\\CampaignViewModel.cs",
+              "RelativeToolTip": "SiberMailer.UI\\ViewModels\\CampaignViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIoCAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T04:58:44.55Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "SmtpVaultView.xaml",
+              "DocumentMoniker": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\SmtpVaultView.xaml",
+              "RelativeDocumentMoniker": "SiberMailer.UI\\Views\\SmtpVaultView.xaml",
+              "ToolTip": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\SmtpVaultView.xaml",
+              "RelativeToolTip": "SiberMailer.UI\\Views\\SmtpVaultView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-23T04:50:45.884Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CampaignView.xaml",
+              "DocumentMoniker": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\CampaignView.xaml",
+              "RelativeDocumentMoniker": "SiberMailer.UI\\Views\\CampaignView.xaml",
+              "ToolTip": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\CampaignView.xaml",
+              "RelativeToolTip": "SiberMailer.UI\\Views\\CampaignView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-21T19:37:14.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AdminPanelView.xaml",
+              "DocumentMoniker": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\AdminPanelView.xaml",
+              "RelativeDocumentMoniker": "SiberMailer.UI\\Views\\AdminPanelView.xaml",
+              "ToolTip": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\AdminPanelView.xaml",
+              "RelativeToolTip": "SiberMailer.UI\\Views\\AdminPanelView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-23T05:26:26.525Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\App.xaml",
+              "RelativeDocumentMoniker": "SiberMailer.UI\\App.xaml",
+              "ToolTip": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\App.xaml",
+              "RelativeToolTip": "SiberMailer.UI\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-23T05:53:12.842Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SmtpConfigView.xaml",
+              "DocumentMoniker": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\SmtpConfigView.xaml",
+              "RelativeDocumentMoniker": "SiberMailer.UI\\Views\\SmtpConfigView.xaml",
+              "ToolTip": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\SmtpConfigView.xaml",
+              "RelativeToolTip": "SiberMailer.UI\\Views\\SmtpConfigView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-23T04:50:44.112Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "SiberMailer.UI\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\MainWindow.xaml",
+              "RelativeToolTip": "SiberMailer.UI\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-21T19:32:55.108Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TemplatesView.xaml",
+              "DocumentMoniker": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\TemplatesView.xaml",
+              "RelativeDocumentMoniker": "SiberMailer.UI\\Views\\TemplatesView.xaml",
+              "ToolTip": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\TemplatesView.xaml",
+              "RelativeToolTip": "SiberMailer.UI\\Views\\TemplatesView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-21T18:44:48.785Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SettingsView.xaml",
+              "DocumentMoniker": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\SettingsView.xaml",
+              "RelativeDocumentMoniker": "SiberMailer.UI\\Views\\SettingsView.xaml",
+              "ToolTip": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\SettingsView.xaml",
+              "RelativeToolTip": "SiberMailer.UI\\Views\\SettingsView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-23T04:45:50.57Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MailJobRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.Data\\Repositories\\MailJobRepository.cs",
+              "RelativeDocumentMoniker": "SiberMailer.Data\\Repositories\\MailJobRepository.cs",
+              "ToolTip": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.Data\\Repositories\\MailJobRepository.cs",
+              "RelativeToolTip": "SiberMailer.Data\\Repositories\\MailJobRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T05:19:52.869Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ContactListView.xaml",
+              "DocumentMoniker": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\ContactListView.xaml",
+              "RelativeDocumentMoniker": "SiberMailer.UI\\Views\\ContactListView.xaml",
+              "ToolTip": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\ContactListView.xaml",
+              "RelativeToolTip": "SiberMailer.UI\\Views\\ContactListView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-21T19:37:17.292Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "PinDialog.xaml",
+              "DocumentMoniker": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\PinDialog.xaml",
+              "RelativeDocumentMoniker": "SiberMailer.UI\\Views\\PinDialog.xaml",
+              "ToolTip": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\PinDialog.xaml",
+              "RelativeToolTip": "SiberMailer.UI\\Views\\PinDialog.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-23T04:50:38.752Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "LoginView.xaml",
+              "DocumentMoniker": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\LoginView.xaml",
+              "RelativeDocumentMoniker": "SiberMailer.UI\\Views\\LoginView.xaml",
+              "ToolTip": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\LoginView.xaml",
+              "RelativeToolTip": "SiberMailer.UI\\Views\\LoginView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-23T04:50:34.931Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ImportView.xaml",
+              "DocumentMoniker": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\ImportView.xaml",
+              "RelativeDocumentMoniker": "SiberMailer.UI\\Views\\ImportView.xaml",
+              "ToolTip": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\ImportView.xaml",
+              "RelativeToolTip": "SiberMailer.UI\\Views\\ImportView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-21T20:18:39.346Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DashboardView.xaml",
+              "DocumentMoniker": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\DashboardView.xaml",
+              "RelativeDocumentMoniker": "SiberMailer.UI\\Views\\DashboardView.xaml",
+              "ToolTip": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\DashboardView.xaml",
+              "RelativeToolTip": "SiberMailer.UI\\Views\\DashboardView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-21T19:37:19.77Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ContactEditorWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\ContactEditorWindow.xaml",
+              "RelativeDocumentMoniker": "SiberMailer.UI\\Views\\ContactEditorWindow.xaml",
+              "ToolTip": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\ContactEditorWindow.xaml",
+              "RelativeToolTip": "SiberMailer.UI\\Views\\ContactEditorWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-21T19:37:15.813Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "LogView.xaml",
+              "DocumentMoniker": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\LogView.xaml",
+              "RelativeDocumentMoniker": "SiberMailer.UI\\Views\\LogView.xaml",
+              "ToolTip": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\LogView.xaml",
+              "RelativeToolTip": "SiberMailer.UI\\Views\\LogView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-21T19:37:23.875Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CustomMessageBox.xaml",
+              "DocumentMoniker": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\CustomMessageBox.xaml",
+              "RelativeDocumentMoniker": "SiberMailer.UI\\Views\\CustomMessageBox.xaml",
+              "ToolTip": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\CustomMessageBox.xaml",
+              "RelativeToolTip": "SiberMailer.UI\\Views\\CustomMessageBox.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-21T19:37:18.429Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ApprovalCenterView.xaml",
+              "DocumentMoniker": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\ApprovalCenterView.xaml",
+              "RelativeDocumentMoniker": "SiberMailer.UI\\Views\\ApprovalCenterView.xaml",
+              "ToolTip": "C:\\Users\\Godfry\\Desktop\\vtys\\SiberMailer\\SiberMailer.UI\\Views\\ApprovalCenterView.xaml",
+              "RelativeToolTip": "SiberMailer.UI\\Views\\ApprovalCenterView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-21T19:37:13.576Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

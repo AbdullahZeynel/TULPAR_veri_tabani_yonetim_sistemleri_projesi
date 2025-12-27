@@ -1,0 +1,107 @@
+===============================================
+SIBERMAILER - CAMPAIGN SEND LOG
+Started: 2025-12-23 11:58:02
+SMTP: info@teamergenekon.org
+Subject: TESTTTTTTT 
+Recipients: 85
+===============================================
+
+
+===============================================
+SEND RESULTS
+===============================================
+Total Attempted: 85
+Successful:      60
+Failed:          25
+Success Rate:    70,6%
+Duration:        56,8 seconds
+
+INDIVIDUAL RESULTS:
+-----------------------------------------------
+✓ SENT     aahmed.zainel@gazi.edu.tr
+✓ SENT     abdullahzeynel0@gmail.com
+✓ SENT     g37867882@gmail.com
+✓ SENT     kabdullahzeynel@gmail.zom
+✓ SENT     ahmet.kilic.dev@gmail.com
+✓ SENT     ahmet.kilic1@gazi.edu.tr
+✓ SENT     ak.2004.turkey@gmail.com
+✓ SENT     deutschak13@gmail.com
+✓ SENT     aliberk@asandikci.com
+✓ SENT     aliberkgazi@gmail.com
+✓ SENT     asandikci@asandikci.com
+✓ SENT     business@asandikci.com
+✓ SENT     me@asandikci.com
+✓ SENT     25041010057@gazi.edu.tr
+✓ SENT     azrakurtoglu0641@gmail.com
+✓ SENT     2001.batuhan.28@gmail.com
+✓ SENT     2001.batuhan.85@gmail.com
+✓ SENT     2001.batuhan.95@gmail.com
+✓ SENT     23181617015@gazi.edu.tr
+✓ SENT     batuhan.turkyilmaz1@gazi.edu.tr
+✓ SENT     batuhan@turkyilmaz.com
+✓ SENT     info@turkyilmaz.com
+✓ SENT     23181617012@gazi.edu.tr
+✓ SENT     betuldoruk077@gmail.com
+✓ SENT     dbetul2003@gmail.com
+✓ SENT     cemcivelek2585@gmail.com
+✓ SENT     24181616059@gazi.edu.tr
+✓ SENT     cinar67cinar67@gmail.com
+✓ SENT     cinar67cinar677@gmail.com
+✓ SENT     cinargennc@gmail.com
+✓ SENT     25111010402@gazi.edu.tr
+✓ SENT     admin@medip.dev
+✓ SENT     edip@medip.dev
+✓ SENT     edip@proton.me
+✓ SENT     edip1462@gmail.com
+✓ SENT     gazi@medip.dev
+✓ SENT     gazisiber@medip.dev
+✓ SENT     gaziuni@medip.dev
+✓ SENT     medip462@gmail.com
+✓ SENT     medip642@gmail.com
+✓ SENT     ping@medip.dev
+✓ SENT     postmaster@medip.dev
+✓ SENT     24420210009@gazi.edu.tr
+✓ SENT     erginmuhammed040609123@gmail.com
+✓ SENT     24181617017@gazi.edu.tr
+✓ SENT     gokhantonkal.52@gmail.com
+✓ SENT     gerva.altun@gazi.edu.tr
+✓ SENT     gulfemerva2005@gmail.com
+✓ SENT     hilaltatat@gmail.com
+✓ SENT     muzeyyen.tat@gazi.edu.tr
+✓ SENT     hilaltattat@gmail.com
+✓ SENT     ilayda.cati@gazi.edu.tr
+✓ SENT     ilaydacati293270@gmail.com
+✓ SENT     ilaydacati659@gmail.com
+✓ SENT     23181616049@gazi.edu.tr
+✓ SENT     kerem_durgut@hotmail.com
+✓ SENT     keremdurgut265@gmail.com
+✓ SENT     keremdurgut266@gmail.com
+✓ SENT     24181616055@gazi.edu.tr
+✓ SENT     meldakahraman.2@gmail.com
+✗ FAILED   meldakahraman.02@gmail.com - ERROR: 4.7.1 Error: too much mail from 78.175.232.6
+✗ FAILED   24420210035@gazi.edu.tr - ERROR: 4.7.1 Error: too much mail from 78.175.232.6
+✗ FAILED   mertno123@gmail.com - ERROR: 4.7.1 Error: too much mail from 78.175.232.6
+✗ FAILED   25181616060@gazi.edu.tr - ERROR: 4.7.1 Error: too much mail from 78.175.232.6
+✗ FAILED   meert.yiigit@gmail.com - ERROR: 4.7.1 Error: too much mail from 78.175.232.6
+✗ FAILED   meertyiigit@icloud.com - ERROR: 4.7.1 Error: too much mail from 78.175.232.6
+✗ FAILED   bozkurtmuberra2@gmail.com - ERROR: 4.7.1 Error: too much mail from 78.175.232.6
+✗ FAILED   muberra.bozkurt@gazi.edu.tr - ERROR: 4.7.1 Error: too much mail from 78.175.232.6
+✗ FAILED   m.emin.kork@gmail.com - ERROR: 4.7.1 Error: too much mail from 78.175.232.6
+✗ FAILED   24181616033@gazi.edu.tr - ERROR: 4.7.1 Error: too much mail from 78.175.232.6
+✗ FAILED   nehirdarici@gmail.com - ERROR: The SmtpClient is not connected.
+✗ FAILED   24181616068@gazi.edu.tr - ERROR: The SmtpClient is not connected.
+✗ FAILED   gorkemkrbl07@gmail.com - ERROR: The SmtpClient is not connected.
+✗ FAILED   24181616020@gazi.edu.tr - ERROR: The SmtpClient is not connected.
+✗ FAILED   rizamaden@outlook.com - ERROR: The SmtpClient is not connected.
+✗ FAILED   rizamaden075@gmail.com - ERROR: The SmtpClient is not connected.
+✗ FAILED   25181616767@gazi.edu.tr - ERROR: The SmtpClient is not connected.
+✗ FAILED   cem.civelek@gazi.edu.tr - ERROR: The SmtpClient is not connected.
+✗ FAILED   olmezsalihyigit@gmail.com - ERROR: The SmtpClient is not connected.
+✗ FAILED   olmezsalihyigit06@gmail.com - ERROR: The SmtpClient is not connected.
+✗ FAILED   24181616006@gazi.edu.tr - ERROR: The SmtpClient is not connected.
+✗ FAILED   duolingoduolingo142@gmail.com - ERROR: The SmtpClient is not connected.
+✗ FAILED   yusuf123@gmail.com - ERROR: The SmtpClient is not connected.
+✗ FAILED   zeren.kavaz@gazi.edu.tr - ERROR: The SmtpClient is not connected.
+✗ FAILED   zerenkavaz@gmail.com - ERROR: The SmtpClient is not connected.
+
+Completed: 2025-12-23 11:58:58

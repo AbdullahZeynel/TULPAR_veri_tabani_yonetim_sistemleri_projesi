@@ -1,0 +1,449 @@
+﻿<Window x:Class="SiberMailer.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:SiberMailer.UI.ViewModels"
+        Title="SiberMailer 2.0" 
+        Height="700" Width="1100"
+        MinHeight="600" MinWidth="900"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        ResizeMode="CanResizeWithGrip"
+        Background="Transparent">
+
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+
+    <!-- Main Container -->
+    <Border Background="{DynamicResource WindowBackgroundBrush}"
+            CornerRadius="12"
+            BorderBrush="{DynamicResource BorderBrush}"
+            BorderThickness="1">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="220"/>
+                <!-- Sidebar -->
+                <ColumnDefinition Width="*"/>
+                <!-- Content -->
+            </Grid.ColumnDefinitions>
+
+            <!-- ================================ -->
+            <!-- SIDEBAR -->
+            <!-- ================================ -->
+            <Border Grid.Column="0" 
+                    Background="{DynamicResource PanelBackgroundBrush}"
+                    CornerRadius="12,0,0,12">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <!-- Logo -->
+                        <RowDefinition Height="*"/>
+                        <!-- Nav Items -->
+                        <RowDefinition Height="Auto"/>
+                        <!-- User Profile -->
+                    </Grid.RowDefinitions>
+
+                    <!-- App Logo/Title -->
+                    <StackPanel Grid.Row="0" Margin="20,25,20,30">
+                        <StackPanel Orientation="Horizontal">
+                            <!-- Wolf Logo -->
+                            <Image Source="/Assets/logo.png"
+                                   Height="61" Width="61"
+                                   Margin="0,0,12,0"
+                                   RenderOptions.BitmapScalingMode="HighQuality"/>
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock
+                                           Foreground="{DynamicResource PrimaryTextBrush}"
+                                           FontSize="18"
+                                           FontWeight="Bold"><Run Language="tr-tr" Text="TULPAR"/></TextBlock>
+                                <TextBlock Text="v2.0"
+                                           Foreground="{DynamicResource SecondaryTextBrush}"
+                                           FontSize="11"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Navigation Items -->
+                    <ItemsControl Grid.Row="1" 
+                                  ItemsSource="{Binding NavItems}"
+                                  Margin="10,0">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button Command="{Binding DataContext.NavigateCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                        CommandParameter="{Binding}"
+                                        Margin="0,2"
+                                        HorizontalContentAlignment="Left"
+                                        Cursor="Hand">
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Background" Value="Transparent"/>
+                                            <Setter Property="BorderThickness" Value="0"/>
+                                            <Setter Property="Padding" Value="15,12"/>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Border x:Name="border"
+                                                                Background="{TemplateBinding Background}"
+                                                                CornerRadius="10"
+                                                                Padding="{TemplateBinding Padding}">
+                                                            <ContentPresenter/>
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter TargetName="border" Property="Background" Value="{DynamicResource ButtonNormalBrush}"/>
+                                                            </Trigger>
+                                                            <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                                                                <Setter TargetName="border" Property="Background" Value="{DynamicResource AccentBrush}"/>
+                                                            </DataTrigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Button.Style>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Icon}" 
+                                                   FontSize="16" 
+                                                   Width="30"
+                                                   VerticalAlignment="Center">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                                                            <Setter Property="Foreground" Value="{DynamicResource AccentForegroundBrush}"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                        <TextBlock Text="{Binding Name}" 
+                                                   FontSize="14"
+                                                   VerticalAlignment="Center">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                                                            <Setter Property="Foreground" Value="{DynamicResource AccentForegroundBrush}"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </StackPanel>
+                                </Button>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <!-- User Profile Section -->
+                    <Border Grid.Row="2" 
+                            Background="{DynamicResource CardBackgroundBrush}"
+                            CornerRadius="10"
+                            Margin="15,15,15,20"
+                            Padding="12">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Avatar -->
+                            <Border Grid.Column="0"
+                                    Background="{DynamicResource AccentBrush}"
+                                    Width="40" Height="40"
+                                    CornerRadius="20"
+                                    Margin="0,0,10,0">
+                                <TextBlock Text="{Binding UserInitials}"
+                                           Foreground="White"
+                                           FontWeight="Bold"
+                                           FontSize="14"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                            </Border>
+
+                            <!-- User Info -->
+                            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                <TextBlock Text="{Binding UserDisplayName}"
+                                           Foreground="{DynamicResource PrimaryTextBrush}"
+                                           FontSize="13"
+                                           FontWeight="SemiBold"
+                                           TextTrimming="CharacterEllipsis"/>
+                                <TextBlock Text="{Binding UserRole}"
+                                           Foreground="{DynamicResource SecondaryTextBrush}"
+                                           FontSize="11"/>
+                            </StackPanel>
+
+                            <!-- Logout Button -->
+                            <Button Grid.Column="2"
+                                    Command="{Binding LogoutCommand}"
+                                    ToolTip="Logout"
+                                    Style="{DynamicResource IconButtonStyle}"
+                                    Content="🚪"
+                                    FontSize="14"
+                                    Padding="8"/>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <!-- ================================ -->
+            <!-- MAIN CONTENT AREA -->
+            <!-- ================================ -->
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <!-- Title Bar -->
+                    <RowDefinition Height="*"/>
+                    <!-- Content -->
+                </Grid.RowDefinitions>
+
+                <!-- Custom Title Bar -->
+                <Border Grid.Row="0" 
+                        Background="{DynamicResource WindowBackgroundBrush}"
+                        CornerRadius="0,12,0,0"
+                        MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+                    <Grid Margin="20,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Page Title -->
+                        <TextBlock Grid.Column="0"
+                                   Text="{Binding CurrentViewTitle}"
+                                   Foreground="{DynamicResource PrimaryTextBrush}"
+                                   FontSize="18"
+                                   FontWeight="SemiBold"
+                                   VerticalAlignment="Center"/>
+
+                        <!-- Window Controls -->
+                        <StackPanel Grid.Column="1" 
+                                    Orientation="Horizontal"
+                                    VerticalAlignment="Center">
+                            <Button Content="—" 
+                                    Command="{Binding MinimizeCommand}"
+                                    Style="{DynamicResource IconButtonStyle}"
+                                    FontSize="14"/>
+                            <Button Content="☐" 
+                                    Command="{Binding MaximizeCommand}"
+                                    Style="{DynamicResource IconButtonStyle}"
+                                    FontSize="14"/>
+                            <Button Content="✕" 
+                                    Command="{Binding CloseCommand}"
+                                    Style="{DynamicResource IconButtonStyle}"
+                                    FontSize="14"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <!-- Content Area -->
+                <Border Grid.Row="1" 
+                        Background="{DynamicResource WindowBackgroundBrush}"
+                        CornerRadius="0,0,12,0"
+                        Padding="20,10,20,20">
+
+                    <!-- View Content Switcher -->
+                    <Grid>
+                        <!-- Dashboard View -->
+                        <ContentControl x:Name="DashboardContent">
+                            <ContentControl.Style>
+                                <Style TargetType="ContentControl">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding CurrentViewTitle}" Value="Dashboard">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ContentControl.Style>
+                            <Frame Source="Views/DashboardView.xaml" NavigationUIVisibility="Hidden"/>
+                        </ContentControl>
+
+                        <!-- Contacts/Import View -->
+                        <ContentControl x:Name="ContactsContent">
+                            <ContentControl.Style>
+                                <Style TargetType="ContentControl">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding CurrentViewTitle}" Value="Contacts">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ContentControl.Style>
+                            <Frame Source="Views/ContactListView.xaml" NavigationUIVisibility="Hidden"/>
+                        </ContentControl>
+
+                        <!-- Import View -->
+                        <ContentControl x:Name="ImportContent">
+                            <ContentControl.Style>
+                                <Style TargetType="ContentControl">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding CurrentViewTitle}" Value="Import">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ContentControl.Style>
+                            <Frame Source="Views/ImportView.xaml" NavigationUIVisibility="Hidden"/>
+                        </ContentControl>
+
+                        <!-- Campaign View -->
+                        <ContentControl x:Name="CampaignContent">
+                            <ContentControl.Style>
+                                <Style TargetType="ContentControl">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding CurrentViewTitle}" Value="Campaigns">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ContentControl.Style>
+                            <Frame Source="Views/CampaignView.xaml" NavigationUIVisibility="Hidden"/>
+                        </ContentControl>
+
+                        <!-- Log View -->
+                        <ContentControl x:Name="LogContent">
+                            <ContentControl.Style>
+                                <Style TargetType="ContentControl">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding CurrentViewTitle}" Value="Logs">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ContentControl.Style>
+                            <Frame Source="Views/LogView.xaml" NavigationUIVisibility="Hidden"/>
+                        </ContentControl>
+
+                        <!-- Approval Center View -->
+                        <ContentControl x:Name="ApprovalContent">
+                            <ContentControl.Style>
+                                <Style TargetType="ContentControl">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding CurrentViewTitle}" Value="Approvals">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ContentControl.Style>
+                            <Frame Source="Views/ApprovalCenterView.xaml" NavigationUIVisibility="Hidden"/>
+                        </ContentControl>
+
+                        <!-- SMTP Vault View -->
+                        <ContentControl x:Name="SmtpVaultContent">
+                            <ContentControl.Style>
+                                <Style TargetType="ContentControl">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding CurrentViewTitle}" Value="SmtpVault">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ContentControl.Style>
+                            <Frame Source="Views/SmtpVaultView.xaml" NavigationUIVisibility="Hidden"/>
+                        </ContentControl>
+
+                        <!-- Templates View -->
+                        <ContentControl x:Name="TemplatesContent">
+                            <ContentControl.Style>
+                                <Style TargetType="ContentControl">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding CurrentViewTitle}" Value="Templates">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ContentControl.Style>
+                            <Frame Source="Views/TemplatesView.xaml" NavigationUIVisibility="Hidden"/>
+                        </ContentControl>
+
+                        <!-- Settings View -->
+                        <ContentControl x:Name="SettingsContent">
+                            <ContentControl.Style>
+                                <Style TargetType="ContentControl">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding CurrentViewTitle}" Value="Settings">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ContentControl.Style>
+                            <Frame Source="Views/SettingsView.xaml" NavigationUIVisibility="Hidden"/>
+                        </ContentControl>
+
+                        <!-- Admin Panel View -->
+                        <ContentControl x:Name="AdminPanelContent">
+                            <ContentControl.Style>
+                                <Style TargetType="ContentControl">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding CurrentViewTitle}" Value="Admin Panel">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ContentControl.Style>
+                            <Frame Source="Views/AdminPanelView.xaml" NavigationUIVisibility="Hidden"/>
+                        </ContentControl>
+
+                        <!-- Placeholder for other views -->
+                        <StackPanel VerticalAlignment="Center" 
+                                    HorizontalAlignment="Center">
+                            <StackPanel.Style>
+                                <Style TargetType="StackPanel">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding CurrentViewTitle}" Value="Dashboard">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding CurrentViewTitle}" Value="Contacts">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding CurrentViewTitle}" Value="Import">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding CurrentViewTitle}" Value="Campaigns">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding CurrentViewTitle}" Value="Approvals">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding CurrentViewTitle}" Value="Logs">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding CurrentViewTitle}" Value="SMTP Vault">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding CurrentViewTitle}" Value="Templates">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding CurrentViewTitle}" Value="Settings">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding CurrentViewTitle}" Value="Admin Panel">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </StackPanel.Style>
+
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

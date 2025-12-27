@@ -1,0 +1,23 @@
+===============================================
+SIBERMAILER - CAMPAIGN SEND LOG
+Started: 2025-12-23 10:49:26
+SMTP: info@teamergenekon.org
+Subject: TEST MAİL
+Recipients: 1
+===============================================
+
+
+===============================================
+SEND RESULTS
+===============================================
+Total Attempted: 1
+Successful:      0
+Failed:          1
+Success Rate:    0,0%
+Duration:        30,1 seconds
+
+INDIVIDUAL RESULTS:
+-----------------------------------------------
+✗ FAILED   0abdullahzeynel0@gmail.com - ERROR: Connection error: Operation timed out after 30000 milliseconds
+
+Completed: 2025-12-23 10:49:57

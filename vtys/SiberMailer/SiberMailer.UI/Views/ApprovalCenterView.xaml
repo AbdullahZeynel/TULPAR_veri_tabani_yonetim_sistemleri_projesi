@@ -1,0 +1,435 @@
+<UserControl x:Class="SiberMailer.UI.Views.ApprovalCenterView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:SiberMailer.UI.ViewModels">
+    
+    <UserControl.DataContext>
+        <vm:ApprovalCenterViewModel/>
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0" 
+                Background="{DynamicResource CardBackgroundBrush}"
+                Padding="20,15"
+                Margin="10,10,10,0"
+                CornerRadius="12">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Title -->
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="✅ Approval Center"
+                               Foreground="{DynamicResource PrimaryTextBrush}"
+                               FontSize="24"
+                               FontWeight="Bold"/>
+                    <TextBlock Text="Review and approve pending email campaigns"
+                               Foreground="{DynamicResource SecondaryTextBrush}"
+                               FontSize="12"
+                               Margin="0,5,0,0"/>
+                </StackPanel>
+
+                <!-- Refresh Button -->
+                <Button Grid.Column="1"
+                        Command="{Binding RefreshCommand}"
+                        Style="{DynamicResource ModernButtonStyle}"
+                        VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="🔄" Margin="0,0,8,0"/>
+                        <TextBlock Text="Refresh"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </Border>
+
+        <!-- Main Content: Job List + Detail -->
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="380"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Pending Jobs List -->
+            <Border Grid.Column="0"
+                    Background="{DynamicResource CardBackgroundBrush}"
+                    CornerRadius="12"
+                    Margin="0,0,10,0"
+                    Padding="15">
+                
+                <!-- Empty State -->
+                <Grid>
+                    <StackPanel VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Visibility="{Binding PendingJobs.Count, Converter={StaticResource InverseBoolToVisibility}}">
+                        <TextBlock Text="🎉" FontSize="48" HorizontalAlignment="Center"/>
+                        <TextBlock Text="No Pending Approvals"
+                                   Foreground="{DynamicResource PrimaryTextBrush}"
+                                   FontSize="18"
+                                   FontWeight="SemiBold"
+                                   HorizontalAlignment="Center"
+                                   Margin="0,15,0,5"/>
+                        <TextBlock Text="All campaigns have been reviewed"
+                                   Foreground="{DynamicResource SecondaryTextBrush}"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+
+                    <!-- Job List -->
+                    <ListBox ItemsSource="{Binding PendingJobs}"
+                             SelectedItem="{Binding SelectedJob}"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ListBoxItem">
+                                            <Border x:Name="Border"
+                                                    Background="{DynamicResource PanelBackgroundBrush}"
+                                                    CornerRadius="10"
+                                                    Padding="15"
+                                                    Margin="0,0,0,10"
+                                                    Cursor="Hand">
+                                                <ContentPresenter/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter TargetName="Border" Property="Background" Value="{DynamicResource AccentBrush}"/>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="Border" Property="Background" Value="{DynamicResource ButtonHoverBrush}"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <!-- Job Name -->
+                                    <TextBlock Grid.Row="0" Grid.Column="0"
+                                               Text="{Binding JobName}"
+                                               Foreground="{DynamicResource PrimaryTextBrush}"
+                                               FontWeight="SemiBold"
+                                               FontSize="14"/>
+
+                                    <!-- Status Badge -->
+                                    <Border Grid.Row="0" Grid.Column="1"
+                                            Background="{DynamicResource WarningBrush}"
+                                            CornerRadius="8"
+                                            Padding="8,3">
+                                        <TextBlock Text="PENDING"
+                                                   Foreground="White"
+                                                   FontSize="10"
+                                                   FontWeight="Bold"/>
+                                    </Border>
+
+                                    <!-- Details -->
+                                    <StackPanel Grid.Row="1" Grid.ColumnSpan="2" 
+                                                Orientation="Horizontal"
+                                                Margin="0,8,0,0">
+                                        <TextBlock Foreground="{DynamicResource SecondaryTextBrush}"
+                                                   FontSize="12">
+                                            <Run Text="📧"/>
+                                            <Run Text="{Binding TotalRecipients}"/>
+                                            <Run Text=" recipients"/>
+                                        </TextBlock>
+                                        <TextBlock Text="  •  "
+                                                   Foreground="{DynamicResource SecondaryTextBrush}"/>
+                                        <TextBlock Foreground="{DynamicResource SecondaryTextBrush}"
+                                                   FontSize="12">
+                                            <Run Text="📅"/>
+                                            <Run Text="{Binding CreatedAt, StringFormat='{}{0:MMM dd, HH:mm}'}"/>
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <!-- Created By -->
+                                    <TextBlock Grid.Row="2" Grid.ColumnSpan="2"
+                                               Foreground="{DynamicResource SecondaryTextBrush}"
+                                               FontSize="11"
+                                               Margin="0,5,0,0">
+                                        <Run Text="Created by User #"/>
+                                        <Run Text="{Binding CreatedBy}"/>
+                                    </TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </Border>
+
+            <!-- Detail Panel -->
+            <Border Grid.Column="1"
+                    Background="{DynamicResource CardBackgroundBrush}"
+                    CornerRadius="12"
+                    Padding="20">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- No Selection -->
+                    <TextBlock Grid.RowSpan="3"
+                               Text="Select a job to review"
+                               Foreground="{DynamicResource SecondaryTextBrush}"
+                               FontStyle="Italic"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Visibility="{Binding HasSelectedJob, Converter={StaticResource InverseBoolToVisibility}}"/>
+
+                    <!-- Selected Job Details -->
+                    <StackPanel Grid.Row="0"
+                                Visibility="{Binding HasSelectedJob, Converter={StaticResource BoolToVisibility}}">
+                        <TextBlock Text="📝 Job Details"
+                                   Foreground="{DynamicResource PrimaryTextBrush}"
+                                   FontSize="16"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,15"/>
+
+                        <!-- Job Name -->
+                        <Border Background="{DynamicResource PanelBackgroundBrush}"
+                                CornerRadius="8"
+                                Padding="15"
+                                Margin="0,0,0,10">
+                            <StackPanel>
+                                <TextBlock Text="{Binding SelectedJob.JobName}"
+                                           Foreground="{DynamicResource PrimaryTextBrush}"
+                                           FontSize="18"
+                                           FontWeight="Bold"/>
+                                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                                    <Border Background="{DynamicResource WarningBrush}"
+                                            CornerRadius="6"
+                                            Padding="8,4">
+                                        <TextBlock Text="⏳ PENDING APPROVAL"
+                                                   Foreground="White"
+                                                   FontSize="11"
+                                                   FontWeight="SemiBold"/>
+                                    </Border>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Stats Grid -->
+                        <Grid Margin="0,5,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Recipients -->
+                            <Border Grid.Row="0" Grid.Column="0"
+                                    Background="{DynamicResource PanelBackgroundBrush}"
+                                    CornerRadius="8"
+                                    Padding="12"
+                                    Margin="0,0,5,5">
+                                <StackPanel>
+                                    <TextBlock Text="Recipients"
+                                               Foreground="{DynamicResource SecondaryTextBrush}"
+                                               FontSize="11"/>
+                                    <TextBlock Text="{Binding SelectedJob.TotalRecipients}"
+                                               Foreground="{DynamicResource AccentBrush}"
+                                               FontSize="24"
+                                               FontWeight="Bold"/>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- List -->
+                            <Border Grid.Row="0" Grid.Column="1"
+                                    Background="{DynamicResource PanelBackgroundBrush}"
+                                    CornerRadius="8"
+                                    Padding="12"
+                                    Margin="5,0,0,5">
+                                <StackPanel>
+                                    <TextBlock Text="List ID"
+                                               Foreground="{DynamicResource SecondaryTextBrush}"
+                                               FontSize="11"/>
+                                    <TextBlock Text="{Binding SelectedJob.ListId}"
+                                               Foreground="{DynamicResource PrimaryTextBrush}"
+                                               FontSize="24"
+                                               FontWeight="Bold"/>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- Created -->
+                            <Border Grid.Row="1" Grid.Column="0"
+                                    Background="{DynamicResource PanelBackgroundBrush}"
+                                    CornerRadius="8"
+                                    Padding="12"
+                                    Margin="0,5,5,0">
+                                <StackPanel>
+                                    <TextBlock Text="Created"
+                                               Foreground="{DynamicResource SecondaryTextBrush}"
+                                               FontSize="11"/>
+                                    <TextBlock Text="{Binding SelectedJob.CreatedAt, StringFormat='{}{0:MMM dd}'}"
+                                               Foreground="{DynamicResource PrimaryTextBrush}"
+                                               FontSize="16"
+                                               FontWeight="SemiBold"/>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- SMTP Account -->
+                            <Border Grid.Row="1" Grid.Column="1"
+                                    Background="{DynamicResource PanelBackgroundBrush}"
+                                    CornerRadius="8"
+                                    Padding="12"
+                                    Margin="5,5,0,0">
+                                <StackPanel>
+                                    <TextBlock Text="SMTP Account"
+                                               Foreground="{DynamicResource SecondaryTextBrush}"
+                                               FontSize="11"/>
+                                    <TextBlock Text="{Binding SelectedJob.SmtpAccountId}"
+                                               Foreground="{DynamicResource PrimaryTextBrush}"
+                                               FontSize="16"
+                                               FontWeight="SemiBold"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </StackPanel>
+
+                    <!-- Action Buttons -->
+                    <StackPanel Grid.Row="2"
+                                Visibility="{Binding HasSelectedJob, Converter={StaticResource BoolToVisibility}}">
+                        
+                        <!-- Normal Buttons -->
+                        <Grid Visibility="{Binding ShowRejectDialog, Converter={StaticResource InverseBoolToVisibility}}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button Grid.Column="0"
+                                    Command="{Binding ShowRejectDialogCommand}"
+                                    Margin="0,0,5,0"
+                                    Padding="15,12">
+                                <Button.Style>
+                                    <Style TargetType="Button" BasedOn="{StaticResource ModernButtonStyle}">
+                                        <Setter Property="Background" Value="{DynamicResource ErrorBrush}"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                    </Style>
+                                </Button.Style>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="❌" Margin="0,0,8,0"/>
+                                    <TextBlock Text="Reject"/>
+                                </StackPanel>
+                            </Button>
+
+                            <Button Grid.Column="1"
+                                    Command="{Binding ApproveCommand}"
+                                    Margin="5,0,0,0"
+                                    Padding="15,12">
+                                <Button.Style>
+                                    <Style TargetType="Button" BasedOn="{StaticResource AccentButtonStyle}">
+                                        <Setter Property="Background" Value="{DynamicResource SuccessBrush}"/>
+                                    </Style>
+                                </Button.Style>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="✅" Margin="0,0,8,0"/>
+                                    <TextBlock Text="Approve"/>
+                                </StackPanel>
+                            </Button>
+                        </Grid>
+
+                        <!-- Reject Dialog -->
+                        <Border Background="{DynamicResource PanelBackgroundBrush}"
+                                CornerRadius="10"
+                                Padding="15"
+                                Visibility="{Binding ShowRejectDialog, Converter={StaticResource BoolToVisibility}}">
+                            <StackPanel>
+                                <TextBlock Text="Rejection Reason"
+                                           Foreground="{DynamicResource PrimaryTextBrush}"
+                                           FontWeight="SemiBold"
+                                           Margin="0,0,0,10"/>
+                                <TextBox Text="{Binding RejectionReason, UpdateSourceTrigger=PropertyChanged}"
+                                         Style="{DynamicResource ModernTextBoxStyle}"
+                                         Height="80"
+                                         AcceptsReturn="True"
+                                         TextWrapping="Wrap"
+                                         Margin="0,0,0,10"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button Grid.Column="0"
+                                            Content="Cancel"
+                                            Command="{Binding CancelRejectCommand}"
+                                            Style="{DynamicResource ModernButtonStyle}"
+                                            Margin="0,0,5,0"/>
+                                    <Button Grid.Column="1"
+                                            Content="Confirm Reject"
+                                            Command="{Binding RejectCommand}"
+                                            Margin="5,0,0,0">
+                                        <Button.Style>
+                                            <Style TargetType="Button" BasedOn="{StaticResource AccentButtonStyle}">
+                                                <Setter Property="Background" Value="{DynamicResource ErrorBrush}"/>
+                                            </Style>
+                                        </Button.Style>
+                                    </Button>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <!-- Status Bar -->
+        <Border Grid.Row="2"
+                Background="{DynamicResource PanelBackgroundBrush}"
+                Padding="15,10"
+                Margin="10,0,10,10"
+                CornerRadius="8">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0"
+                           Text="{Binding StatusMessage}"
+                           Foreground="{DynamicResource SecondaryTextBrush}"
+                           VerticalAlignment="Center"/>
+
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <TextBlock Text="Pending:"
+                               Foreground="{DynamicResource SecondaryTextBrush}"
+                               Margin="0,0,5,0"/>
+                    <TextBlock Text="{Binding PendingJobs.Count}"
+                               Foreground="{DynamicResource WarningBrush}"
+                               FontWeight="Bold"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,536 @@
+<UserControl x:Class="SiberMailer.UI.Views.SmtpVaultView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:SiberMailer.UI.ViewModels"
+             Background="{DynamicResource WindowBackgroundBrush}">
+
+    <UserControl.DataContext>
+        <vm:SmtpVaultViewModel/>
+    </UserControl.DataContext>
+
+    <Grid>
+        <!-- Main Content -->
+        <Grid Margin="20,20,20,60">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>  <!-- Header -->
+                <RowDefinition Height="*"/>     <!-- DataGrid -->
+            </Grid.RowDefinitions>
+
+            <!-- ================================ -->
+            <!-- HEADER: Title + Add Button -->
+            <!-- ================================ -->
+            <Grid Grid.Row="0" Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Title Section -->
+                <StackPanel Grid.Column="0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="🔐" FontSize="28" Margin="0,0,12,0"/>
+                        <TextBlock Text="SMTP Vault"
+                                   Foreground="{DynamicResource PrimaryTextBrush}"
+                                   FontSize="28"
+                                   FontWeight="Bold"/>
+                    </StackPanel>
+                    <TextBlock Text="Securely manage SMTP credentials with AES-256 encryption"
+                               Foreground="{DynamicResource SecondaryTextBrush}"
+                               FontSize="13"
+                               Margin="40,5,0,0"/>
+                </StackPanel>
+
+                <!-- Add Button -->
+                <Button Grid.Column="1"
+                        Command="{Binding AddAccountCommand}"
+                        Style="{DynamicResource AccentButtonStyle}"
+                        Height="48"
+                        Padding="20,0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="➕" Margin="0,0,10,0" FontSize="16"/>
+                        <TextBlock Text="Add Secure Account" FontSize="14" FontWeight="SemiBold"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+
+            <!-- ================================ -->
+            <!-- MAIN DATAGRID -->
+            <!-- ================================ -->
+            <Border Grid.Row="1"
+                    Background="{DynamicResource CardBackgroundBrush}"
+                    CornerRadius="12"
+                    Padding="15">
+                <DataGrid ItemsSource="{Binding Accounts}"
+                          SelectedItem="{Binding SelectedAccount}"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          SelectionMode="Single"
+                          SelectionUnit="FullRow"
+                          CanUserAddRows="False"
+                          CanUserDeleteRows="False"
+                          CanUserResizeRows="False"
+                          CanUserReorderColumns="False"
+                          HeadersVisibility="Column"
+                          GridLinesVisibility="None"
+                          BorderThickness="0"
+                          Background="Transparent"
+                          RowBackground="{DynamicResource PanelBackgroundBrush}"
+                          AlternatingRowBackground="{DynamicResource CardBackgroundBrush}"
+                          Foreground="{DynamicResource PrimaryTextBrush}"
+                          RowHeight="60"
+                          ColumnHeaderHeight="45">
+                    
+                    <!-- DataGrid Styles -->
+                    <DataGrid.Resources>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="{DynamicResource PanelBackgroundBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource SecondaryTextBrush}"/>
+                            <Setter Property="FontWeight" Value="SemiBold"/>
+                            <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="Padding" Value="12,10"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                        </Style>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="Margin" Value="0,2"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="{DynamicResource AccentBrush}"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{DynamicResource ButtonHoverBrush}"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Padding" Value="12,5"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="DataGridCell">
+                                        <Border Background="{TemplateBinding Background}" 
+                                                Padding="{TemplateBinding Padding}">
+                                            <ContentPresenter VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DataGrid.Resources>
+
+                    <DataGrid.Columns>
+                        <!-- Status Column (Toggle Icon) -->
+                        <DataGridTemplateColumn Header="Status" Width="70">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border CornerRadius="12"
+                                            Padding="10,5"
+                                            HorizontalAlignment="Center">
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="Background" Value="#30E85050"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsActive}" Value="True">
+                                                        <Setter Property="Background" Value="#306FCF7C"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                        <TextBlock FontSize="11" FontWeight="Bold" HorizontalAlignment="Center">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Text" Value="OFF"/>
+                                                    <Setter Property="Foreground" Value="#E85050"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsActive}" Value="True">
+                                                            <Setter Property="Text" Value="ON"/>
+                                                            <Setter Property="Foreground" Value="#6FCF7C"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <!-- Account Info Column (Host / Email stacked) -->
+                        <DataGridTemplateColumn Header="Account Info" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding AccountName}"
+                                                   Foreground="{DynamicResource PrimaryTextBrush}"
+                                                   FontWeight="SemiBold"
+                                                   FontSize="14"
+                                                   TextTrimming="CharacterEllipsis"/>
+                                        <TextBlock Foreground="{DynamicResource SecondaryTextBrush}"
+                                                   FontSize="11"
+                                                   Margin="0,3,0,0">
+                                            <Run Text="{Binding SmtpHost}"/>:<Run Text="{Binding SmtpPort}"/>
+                                            <Run Text=" • "/>
+                                            <Run Text="{Binding UseSsl, StringFormat='SSL: {0}'}"/>
+                                        </TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <!-- Total Sent (Badge) -->
+                        <DataGridTemplateColumn Header="Total Sent" Width="100">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Background="{DynamicResource AccentBrush}"
+                                            CornerRadius="10"
+                                            Padding="10,5"
+                                            HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding TotalSentCount, StringFormat='{}{0:N0}'}"
+                                                   Foreground="White"
+                                                   FontWeight="Bold"
+                                                   FontSize="12"
+                                                   HorizontalAlignment="Center"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <!-- Sent Today (Badge) -->
+                        <DataGridTemplateColumn Header="Today" Width="80">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border CornerRadius="10"
+                                            Padding="10,5"
+                                            HorizontalAlignment="Center">
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="Background" Value="#30888888"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding TodaySentCount}" Value="0">
+                                                        <Setter Property="Background" Value="#20888888"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                        <TextBlock Text="{Binding TodaySentCount, StringFormat='{}{0:N0}'}"
+                                                   Foreground="{DynamicResource SecondaryTextBrush}"
+                                                   FontWeight="SemiBold"
+                                                   FontSize="12"
+                                                   HorizontalAlignment="Center"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <!-- Added By (Audit) -->
+                        <DataGridTemplateColumn Header="Added By" Width="140">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding CreatedByName}"
+                                                   Foreground="{DynamicResource PrimaryTextBrush}"
+                                                   FontSize="12"/>
+                                        <TextBlock Text="{Binding CreatedAt, StringFormat='{}{0:MMM dd, yyyy}'}"
+                                                   Foreground="{DynamicResource SecondaryTextBrush}"
+                                                   FontSize="10"
+                                                   Margin="0,2,0,0"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <!-- Last Updated (Audit) -->
+                        <DataGridTemplateColumn Header="Last Updated" Width="140">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding UpdatedByName}"
+                                                   Foreground="{DynamicResource PrimaryTextBrush}"
+                                                   FontSize="12"/>
+                                        <TextBlock Text="{Binding UpdatedAt, StringFormat='{}{0:MMM dd, yyyy}'}"
+                                                   Foreground="{DynamicResource SecondaryTextBrush}"
+                                                   FontSize="10"
+                                                   Margin="0,2,0,0"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <!-- Actions Column (Edit & Delete) -->
+                        <DataGridTemplateColumn Header="Actions" Width="110">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <!-- Edit Button -->
+                                        <Button Command="{Binding DataContext.EditRowCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                                CommandParameter="{Binding}"
+                                                ToolTip="Edit Account"
+                                                Width="36" Height="36"
+                                                Margin="0,0,8,0"
+                                                Cursor="Hand">
+                                            <Button.Style>
+                                                <Style TargetType="Button">
+                                                    <Setter Property="Background" Value="Transparent"/>
+                                                    <Setter Property="BorderThickness" Value="0"/>
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="Button">
+                                                                <Border x:Name="border"
+                                                                        Background="{TemplateBinding Background}"
+                                                                        CornerRadius="8"
+                                                                        Padding="6">
+                                                                    <TextBlock Text="✏️" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                </Border>
+                                                                <ControlTemplate.Triggers>
+                                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                                        <Setter TargetName="border" Property="Background" Value="{DynamicResource ButtonHoverBrush}"/>
+                                                                    </Trigger>
+                                                                </ControlTemplate.Triggers>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </Button.Style>
+                                        </Button>
+
+                                        <!-- Delete Button -->
+                                        <Button Command="{Binding DataContext.DeleteRowCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                                CommandParameter="{Binding}"
+                                                ToolTip="Delete Account"
+                                                Width="36" Height="36"
+                                                Cursor="Hand">
+                                            <Button.Style>
+                                                <Style TargetType="Button">
+                                                    <Setter Property="Background" Value="Transparent"/>
+                                                    <Setter Property="BorderThickness" Value="0"/>
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="Button">
+                                                                <Border x:Name="border"
+                                                                        Background="{TemplateBinding Background}"
+                                                                        CornerRadius="8"
+                                                                        Padding="6">
+                                                                    <TextBlock Text="🗑️" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                </Border>
+                                                                <ControlTemplate.Triggers>
+                                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                                        <Setter TargetName="border" Property="Background" Value="#30E85050"/>
+                                                                    </Trigger>
+                                                                </ControlTemplate.Triggers>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </Button.Style>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </Grid>
+
+        <!-- ================================ -->
+        <!-- ADD/EDIT ACCOUNT DIALOG OVERLAY -->
+        <!-- ================================ -->
+        <Grid Visibility="{Binding ShowAccountDialog, Converter={StaticResource BoolToVisibility}}">
+            <!-- Dark Overlay -->
+            <Border Background="#80000000"/>
+
+            <!-- Dialog Box -->
+            <Border Background="{DynamicResource CardBackgroundBrush}"
+                    CornerRadius="16"
+                    Padding="30"
+                    Width="480"
+                    MaxHeight="650"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <!-- Dialog Header -->
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,25">
+                            <TextBlock Text="🔐" FontSize="24" Margin="0,0,12,0"/>
+                            <TextBlock Text="{Binding DialogTitle}"
+                                       Foreground="{DynamicResource PrimaryTextBrush}"
+                                       FontSize="22"
+                                       FontWeight="Bold"/>
+                        </StackPanel>
+
+                        <!-- Account Name -->
+                        <TextBlock Text="Account Name"
+                                   Foreground="{DynamicResource SecondaryTextBrush}"
+                                   FontSize="12"
+                                   Margin="0,0,0,5"/>
+                        <TextBox Text="{Binding DialogAccountName, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{DynamicResource ModernTextBoxStyle}"
+                                 Margin="0,0,0,15"/>
+
+                        <!-- SMTP Host -->
+                        <TextBlock Text="SMTP Host"
+                                   Foreground="{DynamicResource SecondaryTextBrush}"
+                                   FontSize="12"
+                                   Margin="0,0,0,5"/>
+                        <TextBox Text="{Binding DialogSmtpHost, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{DynamicResource ModernTextBoxStyle}"
+                                 Margin="0,0,0,15"/>
+
+                        <!-- Port & SSL Row -->
+                        <Grid Margin="0,0,0,15">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                                <TextBlock Text="Port"
+                                           Foreground="{DynamicResource SecondaryTextBrush}"
+                                           FontSize="12"
+                                           Margin="0,0,0,5"/>
+                                <TextBox Text="{Binding DialogSmtpPort, UpdateSourceTrigger=PropertyChanged}"
+                                         Style="{DynamicResource ModernTextBoxStyle}"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                                <TextBlock Text="Use SSL/TLS"
+                                           Foreground="{DynamicResource SecondaryTextBrush}"
+                                           FontSize="12"
+                                           Margin="0,0,0,5"/>
+                                <CheckBox IsChecked="{Binding DialogUseSsl}"
+                                          Content="Enable SSL"
+                                          Foreground="{DynamicResource PrimaryTextBrush}"
+                                          Margin="0,8,0,0"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <!-- Credentials Section (Only for new accounts) -->
+                        <Border Background="{DynamicResource PanelBackgroundBrush}"
+                                CornerRadius="10"
+                                Padding="15"
+                                Margin="0,0,0,15">
+                            <StackPanel>
+                                <TextBlock Text="🔒 Secure Credentials"
+                                           Foreground="{DynamicResource PrimaryTextBrush}"
+                                           FontWeight="SemiBold"
+                                           FontSize="13"
+                                           Margin="0,0,0,10"/>
+
+                                <!-- Email -->
+                                <TextBlock Text="Email Address"
+                                           Foreground="{DynamicResource SecondaryTextBrush}"
+                                           FontSize="12"
+                                           Margin="0,0,0,5"/>
+                                <TextBox Text="{Binding DialogEmail, UpdateSourceTrigger=PropertyChanged}"
+                                         Style="{DynamicResource ModernTextBoxStyle}"
+                                         Margin="0,0,0,10"/>
+
+                                <!-- Password -->
+                                <TextBlock Text="Password"
+                                           Foreground="{DynamicResource SecondaryTextBrush}"
+                                           FontSize="12"
+                                           Margin="0,0,0,5"/>
+                                <PasswordBox x:Name="PasswordBox"
+                                             Style="{DynamicResource ModernPasswordBoxStyle}"
+                                             Margin="0,0,0,10"/>
+
+                                <!-- Encryption PIN -->
+                                <TextBlock Text="🔑 Encryption PIN (min 4 characters)"
+                                           Foreground="{DynamicResource AccentBrush}"
+                                           FontSize="12"
+                                           FontWeight="SemiBold"
+                                           Margin="0,5,0,5"/>
+                                <PasswordBox x:Name="PinBox"
+                                             Style="{DynamicResource ModernPasswordBoxStyle}"/>
+                                
+                                <TextBlock Text="⚠️ Remember this PIN! It's required to unlock credentials."
+                                           Foreground="{DynamicResource WarningBrush}"
+                                           FontSize="10"
+                                           TextWrapping="Wrap"
+                                           Margin="0,8,0,0"/>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Daily Limit & Shared Row -->
+                        <Grid Margin="0,0,0,20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                                <TextBlock Text="Daily Limit"
+                                           Foreground="{DynamicResource SecondaryTextBrush}"
+                                           FontSize="12"
+                                           Margin="0,0,0,5"/>
+                                <TextBox Text="{Binding DialogDailyLimit, UpdateSourceTrigger=PropertyChanged}"
+                                         Style="{DynamicResource ModernTextBoxStyle}"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                                <TextBlock Text="Sharing"
+                                           Foreground="{DynamicResource SecondaryTextBrush}"
+                                           FontSize="12"
+                                           Margin="0,0,0,5"/>
+                                <CheckBox IsChecked="{Binding DialogIsShared}"
+                                          Content="Shared Account"
+                                          Foreground="{DynamicResource PrimaryTextBrush}"
+                                          Margin="0,8,0,0"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <!-- Dialog Buttons -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button Grid.Column="1"
+                                    Command="{Binding CancelDialogCommand}"
+                                    Content="Cancel"
+                                    Style="{DynamicResource ModernButtonStyle}"
+                                    Padding="25,12"
+                                    Margin="0,0,10,0"/>
+
+                            <Button Grid.Column="2"
+                                    Command="{Binding SaveAccountCommand}"
+                                    Content="{Binding SaveButtonText}"
+                                    Style="{DynamicResource AccentButtonStyle}"
+                                    Padding="25,12"/>
+                        </Grid>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+
+        <!-- Status Bar -->
+        <Border VerticalAlignment="Bottom"
+                Background="{DynamicResource PanelBackgroundBrush}"
+                Padding="15,10"
+                Margin="20,0,20,15"
+                CornerRadius="8">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Grid.Column="0"
+                           Text="{Binding StatusMessage}"
+                           Foreground="{DynamicResource SecondaryTextBrush}"
+                           FontSize="12"
+                           VerticalAlignment="Center"/>
+                
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <TextBlock Text="🔒 AES-256 Encrypted"
+                               Foreground="{DynamicResource AccentBrush}"
+                               FontSize="11"
+                               FontWeight="SemiBold"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

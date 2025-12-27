@@ -1,0 +1,24 @@
+===============================================
+SIBERMAILER - CAMPAIGN SEND LOG
+Started: 2025-12-23 13:58:15
+SMTP: info@gazisiber.org
+Subject: ttttttt
+Recipients: 2
+===============================================
+
+
+===============================================
+SEND RESULTS
+===============================================
+Total Attempted: 2
+Successful:      2
+Failed:          0
+Success Rate:    100,0%
+Duration:        8,0 seconds
+
+INDIVIDUAL RESULTS:
+-----------------------------------------------
+✓ SENT     0abdullahzeynel0@gmail.com
+✓ SENT     g37867882@gmail.com
+
+Completed: 2025-12-23 13:58:23
